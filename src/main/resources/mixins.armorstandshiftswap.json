@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "a7.armorstandshiftswap.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "mixins.armorstandshiftswap.refmap.json",
+  "mixins": [
+    "ArmorStandMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
