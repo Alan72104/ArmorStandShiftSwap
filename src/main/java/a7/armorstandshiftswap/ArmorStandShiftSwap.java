@@ -26,7 +26,7 @@ public class ArmorStandShiftSwap
     }
 
     @SubscribeEvent
-    private void commonSetup(final FMLCommonSetupEvent event)
+    public void commonSetup(final FMLCommonSetupEvent event)
     {
         // Some common setup code
         LOGGER.info("ArmorStandShiftSwap installed, shift right click armor stand to swap armor");
