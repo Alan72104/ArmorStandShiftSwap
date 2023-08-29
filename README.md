@@ -1,2 +1,2 @@
 # ArmorStandShiftSwap
- Adds an armor stand feature, shift right click to swap armor
+Shift right click an armor stand to swap armor
