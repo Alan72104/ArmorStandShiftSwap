@@ -28,7 +28,7 @@ public class ArmorStandMixin {
         ItemStack itemstack = player.getItemInHand(hand);
 
         if (!$this.isMarker() && !itemstack.is(Items.NAME_TAG) && !player.isSpectator()) {
-            if (player.level().isClientSide) {
+            if (player.getLevel().isClientSide) {
                 cir.setReturnValue(InteractionResult.CONSUME);
                 cir.cancel();
             } else {
