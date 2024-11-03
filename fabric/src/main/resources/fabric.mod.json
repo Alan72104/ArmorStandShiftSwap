@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "armorstandshiftswap",
+  "version": "${version}",
+  "name": "Armor Stand Shift Swap",
+  "description": "Shift right click an armor stand to swap your whole armor set",
+  "authors": [
+    "Alan72104"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Alan72104/ArmorStandShiftSwap",
+    "sources": "https://github.com/Alan72104/ArmorStandShiftSwap"
+  },
+  "license": "LGPL-3.0-only",
+  "icon": "assets/armorstandshiftswap/icon.png",
+  "environment": "*",
+  "accessWidener" : "armorstandshiftswap.accesswidener",
+  "entrypoints": {
+    "main": [
+      "a7.armorstandshiftswap.fabric.ArmorStandShiftSwapFabric"
+    ],
+    "client": [
+      "a7.armorstandshiftswap.fabric.client.ArmorStandShiftSwapFabricClient"
+    ]
+  },
+  "mixins": [
+    "armorstandshiftswap.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

@@ -1,2 +1,2 @@
 # ArmorStandShiftSwap
-Shift right click an armor stand to swap armor
+Shift right click an armor stand to swap armor set
