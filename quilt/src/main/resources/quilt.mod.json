@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "armorstandshiftswap",
+    "version": "${version}",
+    "metadata": {
+      "name": "Armor Stand Shift Swap",
+      "description": "Shift right click an armor stand to swap your whole armor set",
+      "contributors": {
+        "alan72104": "Author"
+      },
+      "icon": "assets/armorstandshiftswap/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": [
+        "a7.armorstandshiftswap.quilt.ArmorStandShiftSwapQuilt"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "version": "*"
+      },
+      {
+        "id": "quilt_base",
+        "version": "*"
+      },
+      {
+        "id": "minecraft",
+        "version": ">=1.20.1"
+      },
+      {
+        "id": "architectury",
+        "version": ">=9.2.14"
+      }
+    ]
+  },
+  "mixin": [
+    "armorstandshiftswap.mixins.json"
+  ],
+  "access_widener" : "armorstandshiftswap.accesswidener"
+}

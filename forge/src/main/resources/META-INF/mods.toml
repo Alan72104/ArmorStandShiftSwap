@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+issueTrackerURL = "https://github.com/Alan72104/ArmorStandShiftSwap/issues"
+license = "LGPL-3.0-only"
+
+[[mods]]
+modId = "armorstandshiftswap"
+version = "${version}"
+displayName = "Armor Stand Shift Swap"
+authors = "Alan72104"
+description = '''
+Shift right click an armor stand to swap your whole armor set
+'''
+logoFile = "assets/armorstandshiftswap/icon.png"
+
+[[dependencies.armorstandshiftswap]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.armorstandshiftswap]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.armorstandshiftswap]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.2.14,)"
+ordering = "AFTER"
+side = "BOTH"
