@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 public final class ArmorStandShiftSwapForge {
     public ArmorStandShiftSwapForge() {
         ArmorStandShiftSwap.init();
+        PacketHandlerForge.register();
     }
 
     @Mod.EventBusSubscriber(modid = ArmorStandShiftSwap.MOD_ID)

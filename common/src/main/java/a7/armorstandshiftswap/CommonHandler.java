@@ -1,39 +1,25 @@
 package a7.armorstandshiftswap;
 
+import a7.armorstandshiftswap.client.ArmorStandShiftSwapClient;
+import a7.armorstandshiftswap.packets.SwapArmorSetPacket;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 
 public class CommonHandler {
     public static ActionResult entityInteract(PlayerEntity player, Hand hand, Entity entity) {
-        if (!player.isSneaking())
-            return ActionResult.PASS;
-
-        if (!(entity instanceof ArmorStandEntity as))
-            return ActionResult.PASS;
-
-        ItemStack stack = player.getStackInHand(hand);
-
-        if (!as.isMarker() && !stack.isOf(Items.NAME_TAG) && !player.isSpectator()) {
-            if (player.getWorld().isClient) {
-                return ActionResult.SUCCESS;
-            } else {
-                for (int i = 0; i < 4; i++) {
-                    EquipmentSlot slot = EquipmentSlot.fromTypeIndex(EquipmentSlot.Type.ARMOR, i);
-                    if (!as.isSlotDisabled(slot)) {
-                        ItemStack playerStack = player.getEquippedStack(slot);
-                        ItemStack asStack = as.getEquippedStack(slot);
-                        player.equipStack(slot, asStack);
-                        as.equipStack(slot, playerStack);
-                    }
-                }
-                return ActionResult.SUCCESS;
-            }
+        if (player.getWorld().isClient &&
+                ArmorStandShiftSwapClient.KEYBINDING_SWAP.isUnbound() &&
+                entity instanceof ArmorStandEntity armorStand &&
+                player.isSneaking() &&
+                !armorStand.isMarker() &&
+                !player.getStackInHand(hand).isOf(Items.NAME_TAG) &&
+                !player.isSpectator()) {
+            PacketHandler.sendToServer(new SwapArmorSetPacket(armorStand.getId()));
+            return ActionResult.SUCCESS;
         }
 
         return ActionResult.PASS;
