@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[40,)"
 issueTrackerURL = "https://github.com/Alan72104/ArmorStandShiftSwap/issues"
 license = "LGPL-3.0-only"
 
@@ -16,20 +16,20 @@ logoFile = "assets/armorstandshiftswap/icon.png"
 [[dependencies.armorstandshiftswap]]
 modId = "forge"
 mandatory = true
-versionRange = "[47,)"
+versionRange = "[40,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.armorstandshiftswap]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.1,)"
+versionRange = "[1.18.2,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.armorstandshiftswap]]
 modId = "architectury"
 mandatory = true
-versionRange = "[9.2.14,)"
+versionRange = "[4.12.92,)"
 ordering = "AFTER"
 side = "BOTH"
