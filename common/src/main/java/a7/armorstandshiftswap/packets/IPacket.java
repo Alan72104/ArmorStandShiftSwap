@@ -1,11 +1,12 @@
 package a7.armorstandshiftswap.packets;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.PacketByteBuf;
-import org.jetbrains.annotations.Nullable;
+import dev.architectury.networking.NetworkManager.PacketContext;
+import net.minecraft.network.FriendlyByteBuf;
+
+import java.util.function.Supplier;
 
 public interface IPacket {
-    void write(PacketByteBuf buf);
+    void encode(FriendlyByteBuf buf);
 
-    void handle(@Nullable PlayerEntity sender);
+    void handle(Supplier<PacketContext> contextSupplier);
 }
