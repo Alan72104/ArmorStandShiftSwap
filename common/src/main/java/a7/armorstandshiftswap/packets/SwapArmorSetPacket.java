@@ -33,7 +33,7 @@ public class SwapArmorSetPacket implements IPacket {
         PacketContext ctx = contextSupplier.get();
         Player player = ctx.getPlayer();
 
-        Entity entity = player.level().getEntity(armorStandId);
+        Entity entity = player.getLevel().getEntity(armorStandId);
         if (!(entity instanceof ArmorStand armorStand))
             return;
 
