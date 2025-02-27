@@ -1,12 +1,10 @@
 package a7.armorstandshiftswap.client;
 
-import a7.armorstandshiftswap.ArmorStandShiftSwap;
-import a7.armorstandshiftswap.PacketHandler;
 import a7.armorstandshiftswap.packets.SwapArmorSetPacket;
 import com.mojang.blaze3d.platform.InputConstants;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
 import dev.architectury.event.events.client.ClientTickEvent;
-import dev.architectury.injectables.annotations.ExpectPlatform;
+import dev.architectury.networking.NetworkManager;
 import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -32,12 +30,8 @@ public class ArmorStandShiftSwapClient {
     );
 
     public static void init() {
-        ClientLifecycleEvent.CLIENT_SETUP.register(ArmorStandShiftSwapClient::onClientSetup);
-        ClientTickEvent.CLIENT_POST.register(ArmorStandShiftSwapClient::onClientTickPost);
-    }
-
-    private static void onClientSetup(Minecraft mc) {
         KeyMappingRegistry.register(KEY_MAPPING_SWAP);
+        ClientTickEvent.CLIENT_POST.register(ArmorStandShiftSwapClient::onClientTickPost);
     }
 
     private static void onClientTickPost(Minecraft mc) {
@@ -52,8 +46,8 @@ public class ArmorStandShiftSwapClient {
                 player.isShiftKeyDown() &&
                 !armorStand.isMarker() &&
                 !player.getItemInHand(hand).is(Items.NAME_TAG) &&
-                !player.isSpectator()){
-            PacketHandler.sendToServer(new SwapArmorSetPacket(armorStand.getId()));
+                !player.isSpectator()) {
+            NetworkManager.sendToServer(new SwapArmorSetPacket(armorStand.getId()));
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
@@ -73,6 +67,6 @@ public class ArmorStandShiftSwapClient {
                 !armorStand.isMarker() &&
                 mc.level.getWorldBorder().isWithinBounds(target.blockPosition())))
             return;
-        PacketHandler.sendToServer(new SwapArmorSetPacket(armorStand.getId()));
+        NetworkManager.sendToServer(new SwapArmorSetPacket(armorStand.getId()));
     }
 }

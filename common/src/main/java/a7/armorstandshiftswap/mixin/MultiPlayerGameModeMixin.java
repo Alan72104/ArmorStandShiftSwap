@@ -19,10 +19,10 @@ public class MultiPlayerGameModeMixin {
             target = "Lnet/minecraft/client/multiplayer/MultiPlayerGameMode;ensureHasSentCarriedItem()V",
             shift = At.Shift.AFTER), cancellable = true)
     public void asss$interactAt(Player player,
-                           Entity entity,
-                           EntityHitResult entityHitResult,
-                           InteractionHand interactionHand,
-                           CallbackInfoReturnable<InteractionResult> cir) {
+                                Entity entity,
+                                EntityHitResult entityHitResult,
+                                InteractionHand interactionHand,
+                                CallbackInfoReturnable<InteractionResult> cir) {
         InteractionResult res = ArmorStandShiftSwapClient.mixinOnInteract(player, entity, interactionHand);
         if (res != InteractionResult.PASS) {
             cir.setReturnValue(res);
